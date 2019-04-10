@@ -16,3 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::prefix('/recipes')->group(function () {
+
+  Route::get('/recipe_search','RecipeController@recipe_search');
+});

@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+Route::get('/get_category_recipes','WebScrapperController@get_category_recipes');
