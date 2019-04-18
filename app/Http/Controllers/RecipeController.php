@@ -13,7 +13,7 @@ class RecipeController extends Controller
     // suggest recipes based on provided ingredients
    public function recipe_search()
    {
-      $recipes = Recipe::all();
+      $recipes = Recipe::paginate(20);
       return RecipeResource::collection($recipes);
 
    }
