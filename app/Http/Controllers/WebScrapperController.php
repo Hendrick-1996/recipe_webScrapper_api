@@ -17,15 +17,15 @@ class WebScrapperController extends Controller
     function get_category_recipes()
     {
       $categorie_urls = [
-        // 'http://www.kitchenbowl.com/recipes/French',
-        // 'http://www.kitchenbowl.com/recipes/Barbecue',
-        // 'http://www.kitchenbowl.com/recipes/Vegetables',
-        // 'http://www.kitchenbowl.com/recipes/Rice',
-        // 'http://www.kitchenbowl.com/recipes/Noodles',
-        // 'http://www.kitchenbowl.com/recipes/Baked%20Goods',
-        // 'http://www.kitchenbowl.com/recipes/Breakfast%20&%20Brunch',
-        // 'http://www.kitchenbowl.com/recipes/Thanksgiving',
-        // 'http://www.kitchenbowl.com/recipes/Soups'
+        'http://www.kitchenbowl.com/recipes/French',
+        'http://www.kitchenbowl.com/recipes/Barbecue',
+        'http://www.kitchenbowl.com/recipes/Vegetables',
+        'http://www.kitchenbowl.com/recipes/Rice',
+        'http://www.kitchenbowl.com/recipes/Noodles',
+        'http://www.kitchenbowl.com/recipes/Baked%20Goods',
+        'http://www.kitchenbowl.com/recipes/Breakfast%20&%20Brunch',
+        'http://www.kitchenbowl.com/recipes/Thanksgiving',
+        'http://www.kitchenbowl.com/recipes/Soups'
       ];
 
         $client = new Client();
