@@ -13,14 +13,19 @@ class RecipeController extends Controller
     // suggest recipes based on provided ingredients
    public function recipe_search(Request $request)
    {
-    
-      $ingredients = explode(",",$request->ingredients);
 
-      $recipes =  Recipe::whereHas('ingredients',function($query) use ($ingredients){
-        foreach ($ingredients as $ingredient) {
-          $query->where('name','LIKE',"%{$ingredient}%");
-        }
-      })->get();
+      $recipes = collect();
+
+      if(isset($request->ingredients)) {
+        $ingredients = explode(",",$request->ingredients);
+
+        $recipes =  Recipe::whereHas('ingredients',function($query) use ($ingredients){
+          foreach ($ingredients as $ingredient) {
+            $query->where('name','LIKE',"%{$ingredient}%");
+          }
+        })->get();
+      }
+
 
       // dd($recipes);
       return RecipeResource::collection($recipes);
