@@ -11,9 +11,18 @@ use App\Http\Resources\RecipeCollection;
 class RecipeController extends Controller
 {
     // suggest recipes based on provided ingredients
-   public function recipe_search()
+   public function recipe_search(Request $request)
    {
-      $recipes = Recipe::paginate(20);
+    
+      $ingredients = explode(",",$request->ingredients);
+
+      $recipes =  Recipe::whereHas('ingredients',function($query) use ($ingredients){
+        foreach ($ingredients as $ingredient) {
+          $query->where('name','LIKE',"%{$ingredient}%");
+        }
+      })->get();
+
+      // dd($recipes);
       return RecipeResource::collection($recipes);
 
    }
